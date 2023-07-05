@@ -4,8 +4,8 @@ import App from './App';
 import Error from "./pages/Error";
 
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import SeaFieldPages from "./pages/SeaFieldPage/SeaFieldPages";
-import Chess from "./pages/ChessPage/Chess";
+import SeaFieldPage from "./pages/SeaFieldPage/SeaFieldPage";
+import ChessPage from "./pages/ChessPage/ChessPage";
 
 const index = createBrowserRouter([
     {
@@ -15,12 +15,12 @@ const index = createBrowserRouter([
     },
     {
         path: "/seafield",
-        element: <SeaFieldPages/>,
+        element: <SeaFieldPage/>,
     },
     {
         path: "/chess",
-        element: <Chess/>
-    }
+        element: <ChessPage/>
+    },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

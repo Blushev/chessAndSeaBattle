@@ -3,7 +3,7 @@ import React from 'react';
 const Chess = () => {
     return (
         <div>
-            chessboard
+            sgdioaasihs[gidsh
         </div>
     );
 };

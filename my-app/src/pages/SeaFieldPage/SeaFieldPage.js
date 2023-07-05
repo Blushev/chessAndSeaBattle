@@ -2,7 +2,7 @@ import React from 'react';
 import SeaField from "./SeaField";
 import VantaSea from "./VantaSea";
 
-const SeaFieldPages = ({children}) => {
+const SeaFieldPage = () => {
     return (
         <div>
             <SeaField/>
@@ -12,4 +12,4 @@ const SeaFieldPages = ({children}) => {
     );
 };
 
-export default SeaFieldPages;
+export default SeaFieldPage;
