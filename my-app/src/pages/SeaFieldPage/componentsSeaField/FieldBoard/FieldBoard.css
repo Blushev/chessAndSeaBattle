@@ -1,0 +1,14 @@
+.fieldboard{
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    width: 500px;
+    height: 500px;
+}
+
+.cell{
+    border: 1px solid #000;
+    width: 50px;
+    height: 50px;
+}
+
