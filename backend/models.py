@@ -7,9 +7,10 @@ class Recipe:
     description: str(text)
 """
 
+
 class Recipe(db.Model):
-    id = db.Column(db.Integer(),primary_key=True)
-    title = db.Column(db.String(),nullable=False)
+    id = db.Column(db.Integer(), primary_key=True)
+    title = db.Column(db.String(), nullable=False)
     description = db.Column(db.Text(), nullable=False)
 
     def __repr__(self):
@@ -29,7 +30,8 @@ class Recipe(db.Model):
 
         db.session.commit()
 
-#Модель пользователя
+
+# Модель пользователя
 
 """
 class User:
@@ -38,6 +40,7 @@ class User:
     email:string
     password:string
 """
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
