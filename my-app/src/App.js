@@ -15,6 +15,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 function App() {
     return (
           <Routes>
+              <Route path="/" element={<HomePage/>}/>
               <Route path="/seafield" element={<SeaFieldPage/>}/>
               <Route path="/chess" element={<ChessPage/>}/>
               <Route path="/signup" element={<SignUpPage/>}/>

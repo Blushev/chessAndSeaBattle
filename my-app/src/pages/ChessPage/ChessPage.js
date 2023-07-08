@@ -6,13 +6,13 @@ import Navbar from "../../navbar/Navbar";
 
 const ChessPage = () => {
     return (
-        <div>
+        <>
             <Navbar/>
             <div className="main">
                 <Chess/>
                 <VantaChess/>
             </div>
-        </div>
+        </>
 
     );
 };
