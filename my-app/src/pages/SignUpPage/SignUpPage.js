@@ -10,10 +10,38 @@ const SignUpPage = () => {
     const {register, watch, handleSubmit, reset,formState:{errors}} = useForm()
 
 
-    const submitForm=(data)=>{
-        console.log(data)
-        reset()
+    const submitForm=(data)=> {
+
+        if (data.password === data.confirmPassword) {
+
+            const body={
+                username: data.username,
+                email: data.email,
+                password: data.password
+            }
+
+            const requestOptions = {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            }
+
+            fetch('http://127.0.0.1:5000/auth/signup', requestOptions)
+                .then(res=>res.json())
+                .then(data=>console.log(data))
+                .catch(err=>console.log(err))
+
+            reset()
+        }
+        else{
+            alert("Пароль не совпадает")
+        }
+
+
     }
+
 
     console.log(watch("username"))
 
