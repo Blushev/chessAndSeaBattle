@@ -23,7 +23,7 @@ const CreateRecipe = () => {
 
         fetch('http://127.0.0.1:5000/recipe/recipes', requestOptions)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => reset())
             .catch(err => console.log(err))
 
     }
