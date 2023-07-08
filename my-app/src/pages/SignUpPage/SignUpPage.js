@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Navbar from "../../navbar/Navbar";
-import {Button, Form} from "react-bootstrap";
+import {Alert, Button, Form} from "react-bootstrap";
 import './SignUpPage.css'
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
@@ -8,7 +8,8 @@ import {useForm} from "react-hook-form";
 const SignUpPage = () => {
 
     const {register, watch, handleSubmit, reset,formState:{errors}} = useForm()
-
+    const [show, setShow] = useState(true)
+    const [serverResponse, setServerResponse] = useState('')
 
     const submitForm=(data)=> {
 
@@ -29,9 +30,13 @@ const SignUpPage = () => {
             }
 
             fetch('http://127.0.0.1:5000/auth/signup', requestOptions)
-                .then(res=>res.json())
-                .then(data=>console.log(data))
-                .catch(err=>console.log(err))
+                .then(res => res.json())
+                .then(data =>{
+                    console.log(data)
+                    setServerResponse(data.message)
+                    setShow(true)
+                })
+                .catch(err => console.log(err))
 
             reset()
         }
@@ -49,7 +54,25 @@ const SignUpPage = () => {
         <div>
             <Navbar/>
             <div className="form">
-                <h1>Sign Up Page</h1>
+
+                {show?
+                    <>
+                        <Alert variant="success" onClose={() => {setShow(false)
+                        }} dismissible>
+                            <p>
+                                {serverResponse}
+                            </p>
+                        </Alert>
+
+                        <h1>Sign Up Page</h1>
+
+                    </>
+                    :
+                    <h1>Sign Up Page</h1>
+
+                }
+
+
                 <form>
                     <Form.Group>
                         <Form.Label>Username</Form.Label>

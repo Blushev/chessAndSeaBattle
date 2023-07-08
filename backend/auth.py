@@ -27,7 +27,6 @@ login_model = auth_ns.model(
 
 @auth_ns.route('/signup')
 class SignUp(Resource):
-    @auth_ns.marshal_with(signup_model)
     @auth_ns.expect(signup_model)
     def post(self):
         data = request.get_json()
@@ -47,7 +46,7 @@ class SignUp(Resource):
 
         new_user.save()
 
-        return new_user
+        return make_response(jsonify({"message": "Аккаунт успешно создан"}))
 
 
 @auth_ns.route('/login')
