@@ -34,6 +34,9 @@ const Navbar = () => {
                     <li className="nav-item">
                         <a className="nav-link" href="/seafield">Морской бой</a>
                     </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/admin">Админ панель <span>(в разработке)</span></a>
+                    </li>
                 </ul>
             </div>
         </nav>

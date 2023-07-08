@@ -4,11 +4,12 @@ import {Alert, Button, Form} from "react-bootstrap";
 import './SignUpPage.css'
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
+import HomePage from "../HomePage/HomePage";
 
 const SignUpPage = () => {
 
-    const {register, watch, handleSubmit, reset,formState:{errors}} = useForm()
-    const [show, setShow] = useState(true)
+    const {register, handleSubmit, reset,formState:{errors}} = useForm()
+    const [show, setShow] = useState(false)
     const [serverResponse, setServerResponse] = useState('')
 
     const submitForm=(data)=> {
@@ -39,16 +40,14 @@ const SignUpPage = () => {
                 .catch(err => console.log(err))
 
             reset()
+            window.location.href = '/'
+
         }
         else{
             alert("Пароль не совпадает")
         }
-
-
     }
 
-
-    console.log(watch("username"))
 
     return (
         <div>

@@ -31,7 +31,6 @@ const LoginPage = () => {
 
                 if (data){
                     login(data.access_token)
-
                     history('/')
                 }
                 else{

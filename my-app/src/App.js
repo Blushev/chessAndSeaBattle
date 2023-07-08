@@ -10,6 +10,7 @@ import Error from "./pages/Error";
 import SeaFieldPage from "./pages/SeaFieldPage/SeaFieldPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import CreateRecipe from "./Recipe/CreateRecipe";
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
               <Route path="/chess" element={<ChessPage/>}/>
               <Route path="/signup" element={<SignUpPage/>}/>
               <Route path="/login" element={<LoginPage/>}/>
+              <Route path="/admin" element={<CreateRecipe/>}/>
+
           </Routes>
   );
 }
