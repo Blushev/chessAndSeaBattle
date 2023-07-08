@@ -51,6 +51,7 @@ class SignUp(Resource):
 
 @auth_ns.route('/login')
 class Login(Resource):
+    @auth_ns.expect(login_model)
     def post(self):
         data = request.get_json()
 
@@ -66,12 +67,14 @@ class Login(Resource):
                 {"access_token": access_token, "refresh_token": refresh_token}
             )
 
+        else:
+            return jsonify({"message": "Неправильный пароль пользователя"})
+
 
 @auth_ns.route('/refresh')
 class RefreshResource(Resource):
-    @jwt_required(refresh = True)
+    @jwt_required(refresh=True)
     def post(self):
-
         current_user = get_jwt_identity()
         new_access_token = create_access_token(identity=current_user)
         return make_response(jsonify({"access token": new_access_token}))
